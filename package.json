@@ -1,0 +1,8 @@
+{
+  "name": "betkapvp-tier-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}

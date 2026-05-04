@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: betkapvp-tier-site
+    runtime: node
+    plan: free
+    autoDeploy: true
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/players
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      # Поменяй на свой секрет в Render Dashboard
+      - key: ADMIN_TOKEN
+        sync: false
+      # Данные таблицы сохраняются на persistent disk
+      - key: DATA_FILE
+        value: /var/data/tier-data.json
+    disk:
+      name: tier-data
+      mountPath: /var/data
+      sizeGB: 1
